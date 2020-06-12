@@ -5,7 +5,7 @@
 ## Advantages
 * **Predictive (pure function)** → For any integer, n, squares(n) will always produce the
 same 'random' number.
-* **Counter-based (think mappable)** → Each next random number is *not* based on a previous one; 
+* **Counter-based (think mappable, stateless)** → Each next random number is *not* based on a previous one; 
 rather, a random number is simply a function of the non-negative integers
 (*ℕ₀* ≡ (0, 1, 2, 3, ... )), i.e. `squares` ≡ f: *ℕ₀* → *ℕ₀* but limited to the
 range [0,0xffffffff] (=== [0,2^32-1] === [0,4294967295]). Note that this limitation
@@ -15,8 +15,9 @@ really needed - it is not a limitation of the original algorithm.
 * **Fast** → From the arXiv paper: "...one of the fastest counter-based RNGs". It 
 produces about 50 million 'random' numbers on my 1st gen. Intel i7 per second, but
 the original algorithm can do about 1000 million / second - the reason for the slowdown
-is probably due to WASM having to convert from u32 to f64 on each call (again, necessary for
-compatibility with JavaScript).
+is probably due to the original author's code being inlined (i.e. no function call overhead) 
+and possibly to a lesser extend the fact that WASM have to convert from u32 to f64 on 
+each call (again, necessary for compatibility with JavaScript).
 * **Crush-proof** → Passes statistical [BigCrush](https://en.wikipedia.org/wiki/TestU01) tests
 * **Synchronous WASM** → no `Promise`s or `async` required! (due to the WASM Module 
 being read from a static Base64 string and not from a file or url)
@@ -31,6 +32,10 @@ Basically any browser supporting WebAssembly - most major browsers since October
 ## Credits
 All credit goes to Bernard Widynski (author of the original paper).
 
+Also, thanks to (Max Graey)[https://github.com/MaxGraey] for pointing out some
+code efficiency improvements.
+
+🤩 Built with [**Assembly**Script](https://www.assemblyscript.org/) 🤩
 # Installation
 
 ```cli

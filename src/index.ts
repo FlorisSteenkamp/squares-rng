@@ -9,11 +9,10 @@ const base64ToArrayBuffer = isBrowser()
 const arrayBuffer = base64ToArrayBuffer(
 // The WASM code (from .wasm file) that is Base64 encoded
 `AGFzbQEAAAABBgFgAX8BfAMDAgAABQMBAAAHHwMGbWVtb3J5AgAHc3F1YXJlcwAA\
-CHNxdWFyZXM0AAEKuAECTwECfiAArULHuuXf9tjQm2p+IgIgAiACfnwiAUIgiCAB\
-QiCGhCIBIAF+IAJCx7rl3/bY0JtqfHwiAUIgiCABQiCGhCIBIAF+IAJ8QiCIugtm\
-AQJ+IACtQse65d/22NCban4iAiACIAJ+fCEBIAIgAkLHuuXf9tjQm2p8IgIgAUIg\
-hiABQiCIhCIBIAF+fCIBQiCIIAFCIIaEIgEgAX58IgFCIIggAUIghoQiASABfiAC\
-fEIgiLoL`);
+CHNxdWFyZXM0AAEKjgECPwECfiAArULHuuXf9tjQm2p+IgEgASABfnxCIIoiAiAC\
+fiABQse65d/22NCbanx8QiCKIgIgAn4gAXxCIIi6C0wBAn4gAK1Cx7rl3/bY0Jtq\
+fiIBQse65d/22NCbanwiAiABIAIgASABIAF+fEIgiiIBIAF+fEIgiiIBIAF+fEIg\
+iiIBIAF+fEIgiLoL`);
 
 const $module$ = new WebAssembly.Module(arrayBuffer);
 const $instance$ = new WebAssembly.Instance($module$);

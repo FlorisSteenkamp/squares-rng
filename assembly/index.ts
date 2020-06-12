@@ -33,8 +33,10 @@ function squares(n: u32): f64 {
     y = x = u64(n)*key; 
     z = y + key;
 
-    x = x*x + y; x = (x>>32) | (x<<32);  // round 1
-    x = x*x + z; x = (x>>32) | (x<<32);  // round 2
+    //x = x*x + y; x = (x>>32) | (x<<32);  // round 1
+    //x = x*x + z; x = (x>>32) | (x<<32);  // round 2
+    x = x*x + y; x = rotr(x, 32);  // round 1
+    x = x*x + z; x = rotr(x, 32);  // round 2
 
     //return u32((x*x + y) >> 32);  // round 3
     return f64((x*x + y) >> 32);  // round 3
@@ -72,9 +74,9 @@ function squares4(n: u32): f64 {
     y = x = u64(n)*key; 
     z = y + key;
 
-    x = x*x + y; x = (x>>32) | (x<<32);  // round 1
-    x = x*x + z; x = (x>>32) | (x<<32);  // round 2
-    x = x*x + y; x = (x>>32) | (x<<32);  // round 3
+    x = x*x + y; x = x = rotr(x, 32);  // round 1
+    x = x*x + z; x = x = rotr(x, 32);  // round 2
+    x = x*x + y; x = x = rotr(x, 32);  // round 3
 
     return f64((x*x + z) >> 32);  // round 4
     

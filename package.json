@@ -10,10 +10,10 @@
     "private": false,
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/FlorisSteenkamp/rng.git"
+        "url": "git+https://github.com/FlorisSteenkamp/squares-rng.git"
     },
     "bugs": {
-        "url": "https://github.com/FlorisSteenkamp/rng/issues"
+        "url": "https://github.com/FlorisSteenkamp/squares-rng/issues"
     },
     "keywords": [
         "Fast",

@@ -10,7 +10,8 @@ function test() {
     {
         let vs = [];
         for (let i=0; i<len; i++) { 
-            vs.push(squares(i) / 0xffff_ffff); 
+            //vs.push(squares(i) / 0xffff_ffff); 
+            vs.push(squares(i));
         }
         console.log(vs);
         //console.log(vs.map(toHex));
@@ -18,7 +19,8 @@ function test() {
     {
         let vs = [];
         for (let i=0; i<len; i++) { 
-            vs.push(squares4(i) / 0xffff_ffff); 
+            //vs.push(squares4(i) / 0xffff_ffff); 
+            vs.push(squares4(i));
         }
         console.log(vs);
         //console.log(vs.map(toHex));

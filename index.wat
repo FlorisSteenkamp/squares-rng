@@ -11,36 +11,26 @@
   i64.extend_i32_u
   i64.const -1569712520837898937
   i64.mul
-  local.tee $2
-  local.get $2
-  local.get $2
+  local.tee $1
+  local.get $1
+  local.get $1
   i64.mul
   i64.add
-  local.tee $1
   i64.const 32
-  i64.shr_u
-  local.get $1
-  i64.const 32
-  i64.shl
-  i64.or
-  local.tee $1
-  local.get $1
-  i64.mul
+  i64.rotr
+  local.tee $2
   local.get $2
+  i64.mul
+  local.get $1
   i64.const -1569712520837898937
   i64.add
   i64.add
-  local.tee $1
   i64.const 32
-  i64.shr_u
-  local.get $1
-  i64.const 32
-  i64.shl
-  i64.or
-  local.tee $1
-  local.get $1
-  i64.mul
+  i64.rotr
+  local.tee $2
   local.get $2
+  i64.mul
+  local.get $1
   i64.add
   i64.const 32
   i64.shr_u
@@ -53,50 +43,34 @@
   i64.extend_i32_u
   i64.const -1569712520837898937
   i64.mul
-  local.tee $2
-  local.get $2
-  local.get $2
-  i64.mul
-  i64.add
-  local.set $1
-  local.get $2
-  local.get $2
+  local.tee $1
   i64.const -1569712520837898937
   i64.add
   local.tee $2
   local.get $1
-  i64.const 32
-  i64.shl
-  local.get $1
-  i64.const 32
-  i64.shr_u
-  i64.or
-  local.tee $1
-  local.get $1
-  i64.mul
-  i64.add
-  local.tee $1
-  i64.const 32
-  i64.shr_u
-  local.get $1
-  i64.const 32
-  i64.shl
-  i64.or
-  local.tee $1
-  local.get $1
-  i64.mul
-  i64.add
-  local.tee $1
-  i64.const 32
-  i64.shr_u
-  local.get $1
-  i64.const 32
-  i64.shl
-  i64.or
-  local.tee $1
-  local.get $1
-  i64.mul
   local.get $2
+  local.get $1
+  local.get $1
+  local.get $1
+  i64.mul
+  i64.add
+  i64.const 32
+  i64.rotr
+  local.tee $1
+  local.get $1
+  i64.mul
+  i64.add
+  i64.const 32
+  i64.rotr
+  local.tee $1
+  local.get $1
+  i64.mul
+  i64.add
+  i64.const 32
+  i64.rotr
+  local.tee $1
+  local.get $1
+  i64.mul
   i64.add
   i64.const 32
   i64.shr_u
