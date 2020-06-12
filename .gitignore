@@ -1,0 +1,12 @@
+*.wasm
+*.wasm.map
+*.asm.js
+.nyc_output
+.npm-debug.log
+node_modules
+c.bat
+papers
+info
+notes.txt
+test-lib
+
