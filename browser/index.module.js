@@ -1,3 +1,30 @@
+/******/ // The require scope
+/******/ var __webpack_require__ = {};
+/******/ 
+/************************************************************************/
+/******/ /* webpack/runtime/define property getters */
+/******/ (() => {
+/******/ 	// define getter functions for harmony exports
+/******/ 	__webpack_require__.d = (exports, definition) => {
+/******/ 		for(var key in definition) {
+/******/ 			if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 				Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 			}
+/******/ 		}
+/******/ 	};
+/******/ })();
+/******/ 
+/******/ /* webpack/runtime/hasOwnProperty shorthand */
+/******/ (() => {
+/******/ 	__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ })();
+/******/ 
+/************************************************************************/
+var __webpack_exports__ = {};
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "x": () => (/* binding */ squares),
+/* harmony export */   "L": () => (/* binding */ squares4)
+/* harmony export */ });
 const isBrowser = new Function("try {return this===window;}catch(e){ return false;}");
 //const isNode = new Function("try {return this===global;}catch(e){return false;}");
 const base64ToArrayBuffer = isBrowser()
@@ -36,5 +63,8 @@ function toArrayBuffer(buffer) {
     }
     return ab;
 }
-export { squares, squares4 };
-//# sourceMappingURL=index.js.map
+
+
+var __webpack_exports__squares = __webpack_exports__.x;
+var __webpack_exports__squares4 = __webpack_exports__.L;
+export { __webpack_exports__squares as squares, __webpack_exports__squares4 as squares4 };
