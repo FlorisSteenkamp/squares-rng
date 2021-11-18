@@ -1,8 +1,6 @@
-
 import { expect, assert } from 'chai';
 import { describe } from 'mocha';
-import { squares, squares4 } from '../src/index';
-
+import { squares, squares4 } from '../src/index.js';
 
 
 describe('squares', function() {

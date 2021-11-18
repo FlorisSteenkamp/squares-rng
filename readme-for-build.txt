@@ -1,4 +1,3 @@
-
 How to build 
 ============
 (it's a bit long, but can be made shorter in the future)

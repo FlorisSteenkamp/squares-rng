@@ -1,8 +1,11 @@
 # Squares: A Fast Counter-Based RNG (Random Number Generator)
+
 * **Original author** (of paper and original C code) → Bernard Widynski (squaresrng@gmail.com) 
 * [**arXiv paper**](https://arxiv.org/pdf/2004.06278v2.pdf) (May 5, 2020)
 * [**Website with original C code**](https://squaresrng.wixsite.com/rand)
+
 ## Advantages
+
 * **Predictive (pure function)** → For any integer, n, squares(n) will always produce the
 same 'random' number.
 * **Counter-based (think mappable, stateless)** → Each next random number is *not* based on a previous one; 
@@ -32,44 +35,34 @@ Basically any browser supporting WebAssembly - most major browsers since October
 ## Credits
 All credit goes to Bernard Widynski (author of the original paper).
 
-Also, thanks to (Max Graey)[https://github.com/MaxGraey] for pointing out some
+Also, thanks to [Max Graey](https://github.com/MaxGraey) for pointing out some
 code efficiency improvements.
 
 🤩 Built with [**Assembly**Script](https://www.assemblyscript.org/) 🤩
+
 # Installation
 
 ```cli
 npm install squares-rng
 ```
 
-## TypeScript
+This package is [ESM only](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c)
+and can be used in `Node.js` (or in a browser when bundled using e.g. Webpack).
 
-In your project
-```typescript
-import { squares, squares4 } from "squares-rng";
-```
+Additionally, self-contained `ECMAScript Module` (ESM) files `index.module.js` and
+`index.module.min.js` in the `./browser` folder is provided.
 
-## Node
-
-```javascript
-let { squares, squares4 } = require('squares-rng');
-```
-
-## Browser (using global var)
-
-After the npm installation simply include the script in your project:
-```html
-<script src='node_modules/squares-rng/browser/index.min.js'></script>
-```
-A new global object will be available called `SquaresRNG`.
-
-```javascript
-const { squares, squares4 } = SquaresRNG; 
-```
+Or, if you need a legacy browser script there is also `index.js`
+and `index.min.js` in the `./browser` folder. Either script exposes a global 
+variable called SquaresRNG.
 
 # Usage
 
-```javascript
+## Node.js
+```JavaScript
+// @filename: `somefilename.mjs` (or `somefilename.js` if { "type": "module" } is specified in your package.json)
+import { squares, squares4 } from "squares-rng";
+
 squares(100);   //=> 1083911291
 squares(100);   //=> 1083911291
 squares4(100);  //=> 843037697
@@ -82,6 +75,73 @@ squares(3) / 0xffff_ffff;  //=> 0.4883159516584864
 squares(4) / 0xffff_ffff;  //=> 0.3198446904588129
 squares(5) / 0xffff_ffff;  //=> 0.23406353551756207
 ```
+
+### Browsers - ESM - (Chrome 61+, Safari 11+, Firefox 60+, Opera 48+, Edge 16+, ~~Internet Explorer~~)
+
+```html
+<!doctype html>
+
+<html lang="en">
+<head>
+    <script type="module">
+        import { squares, squares4 } from "./node_modules/squares-rng/browser/index.module.min.js";
+
+        squares(100);   //=> 1083911291
+        squares4(100);  //=> 843037697
+        // Need random numbers as double floats in [0,1]? (including 0, but excluding 1)
+        squares(1) / 0xffff_ffff;  //=> 0.846250728435407
+    </script>
+</head>
+
+<body>Check the console.</body>
+
+</html>
+```
+
+### Browsers (older) - Legacy Scripts
+
+```html
+<!doctype html>
+
+<html lang="en">
+<head>
+    <script src="./node_modules/squares-rng/browser/index.min.js"></script>
+    <script>
+        const { squares, squares4 } = SquaresRNG; 
+
+        squares(100);   //=> 1083911291
+        squares4(100);  //=> 843037697
+        // Need random numbers as double floats in [0,1]? (including 0, but excluding 1)
+        squares(1) / 0xffff_ffff;  //=> 0.846250728435407
+    </script>
+</head>
+
+<body>Check the console.</body>
+
+</html>
+```
+
+### Bundlers (Webpack, Rollup, ...)
+
+Webpack will be taken as an example here.
+
+Since your webpack config file might still use `CommonJS` you must rename 
+`webpack.config.js` to `webpack.config.cjs`.
+
+If you are using TypeScript:
+
+Since this is an [ESM only](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c)
+library you must use [resolve-typescript-plugin](https://www.npmjs.com/package/resolve-typescript-plugin) 
+(at least until webpack catches up with ESM?) in your `webpack.config.cjs` file.
+
+```cli
+npm install --save-dev resolve-typescript-plugin
+```
+
+and follow the instructions given at [resolve-typescript-plugin](https://www.npmjs.com/package/resolve-typescript-plugin).
+
+Additionally, follow this [guide](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c#how-can-i-make-my-typescript-project-output-esm).
+
 
 # License
 The MIT License (MIT)

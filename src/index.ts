@@ -1,4 +1,3 @@
-
 const isBrowser = new Function("try {return this===window;}catch(e){ return false;}");
 //const isNode = new Function("try {return this===global;}catch(e){return false;}");
 
@@ -19,8 +18,8 @@ const $instance$ = new WebAssembly.Instance($module$);
 
 type F = (n: number) => number;
 
-let squares:  F = $instance$.exports.squares as F;
-let squares4: F = $instance$.exports.squares4 as F;
+let squares = $instance$.exports.squares as F;
+let squares4 = $instance$.exports.squares4 as F;
 
 
 /** From https://stackoverflow.com/a/21797381 */
