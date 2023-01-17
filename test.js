@@ -1,5 +1,5 @@
 
-const { squares, squares4 } = SquaresRNG; 
+import { squares, squares4 } from "node_modules/squares-rng/browser/index.min.js"; 
 
 
 test();

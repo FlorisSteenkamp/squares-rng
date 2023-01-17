@@ -16,17 +16,15 @@ iiIBIAF+fEIgiLoL`);
 const $module$ = new WebAssembly.Module(arrayBuffer);
 const $instance$ = new WebAssembly.Instance($module$);
 
-type F = (n: number) => number;
-
-let squares = $instance$.exports.squares as F;
-let squares4 = $instance$.exports.squares4 as F;
+const squares = $instance$.exports.squares as (n: number) => number;
+const squares4 = $instance$.exports.squares4 as (n: number) => number;
 
 
 /** From https://stackoverflow.com/a/21797381 */
 function browserBase64ToArrayBuffer(base64: string) {
-    let str = window.atob(base64);
-    let len = str.length;
-    let bytes = new Uint8Array(len);
+    const str = window.atob(base64);
+    const len = str.length;
+    const bytes = new Uint8Array(len);
     for (let i=0; i<len; i++) {
         bytes[i] = str.charCodeAt(i);
     }
@@ -42,9 +40,9 @@ function nodeBase64ToArrayBuffer(base64: string) {
 
 /** From https://stackoverflow.com/a/12101012 */
 function toArrayBuffer(buffer: Buffer) {
-    var ab = new ArrayBuffer(buffer.length);
-    var view = new Uint8Array(ab);
-    for (var i = 0; i < buffer.length; ++i) {
+    const ab = new ArrayBuffer(buffer.length);
+    const view = new Uint8Array(ab);
+    for (let i=0; i<buffer.length; ++i) {
         view[i] = buffer[i];
     }
     return ab;

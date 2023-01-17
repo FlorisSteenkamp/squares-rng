@@ -49,8 +49,8 @@ npm install squares-rng
 This package is [ESM only](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c)
 and can be used in `Node.js` (or in a browser when bundled using e.g. Webpack).
 
-Additionally, self-contained `ECMAScript Module` (ESM) files `index.module.js` and
-`index.module.min.js` in the `./browser` folder is provided.
+Additionally, self-contained `ECMAScript Module` (ESM) files `index.js` and
+`index.min.js` in the `./browser` folder is provided.
 
 Or, if you need a legacy browser script there is also `index.js`
 and `index.min.js` in the `./browser` folder. Either script exposes a global 
@@ -60,7 +60,6 @@ variable called SquaresRNG.
 
 ## Node.js
 ```JavaScript
-// @filename: `somefilename.mjs` (or `somefilename.js` if { "type": "module" } is specified in your package.json)
 import { squares, squares4 } from "squares-rng";
 
 squares(100);   //=> 1083911291
@@ -69,14 +68,16 @@ squares4(100);  //=> 843037697
 squares4(100);  //=> 843037697
 
 // Need random numbers (as double floats) in [0,1] (including 0, but excluding 1)
-squares(1) / 0xffff_ffff;  //=> 0.846250728435407
-squares(2) / 0xffff_ffff;  //=> 0.08598547803377395
-squares(3) / 0xffff_ffff;  //=> 0.4883159516584864
-squares(4) / 0xffff_ffff;  //=> 0.3198446904588129
-squares(5) / 0xffff_ffff;  //=> 0.23406353551756207
+squares(1) / 0x1_0000_0000;  //=> 0.846250728238374
+squares(2) / 0x1_0000_0000;  //=> 0.08598547801375389
+squares(3) / 0x1_0000_0000;  //=> 0.48831595154479146
+squares(4) / 0x1_0000_0000;  //=> 0.31984469038434327
+squares(5) / 0x1_0000_0000;  //=> 0.2340635354630649
 ```
 
-### Browsers - ESM - (Chrome 61+, Safari 11+, Firefox 60+, Opera 48+, Edge 16+, ~~Internet Explorer~~)
+### Browsers - directly, without a bundler, using the pre-bundled minified .js file
+
+Please note that no tree shaking will take place in this case.
 
 ```html
 <!doctype html>
@@ -84,35 +85,12 @@ squares(5) / 0xffff_ffff;  //=> 0.23406353551756207
 <html lang="en">
 <head>
     <script type="module">
-        import { squares, squares4 } from "./node_modules/squares-rng/browser/index.module.min.js";
+        import { squares, squares4 } from "./node_modules/squares-rng/browser/index.min.js";
 
         squares(100);   //=> 1083911291
         squares4(100);  //=> 843037697
         // Need random numbers as double floats in [0,1]? (including 0, but excluding 1)
-        squares(1) / 0xffff_ffff;  //=> 0.846250728435407
-    </script>
-</head>
-
-<body>Check the console.</body>
-
-</html>
-```
-
-### Browsers (older) - Legacy Scripts
-
-```html
-<!doctype html>
-
-<html lang="en">
-<head>
-    <script src="./node_modules/squares-rng/browser/index.min.js"></script>
-    <script>
-        const { squares, squares4 } = SquaresRNG; 
-
-        squares(100);   //=> 1083911291
-        squares4(100);  //=> 843037697
-        // Need random numbers as double floats in [0,1]? (including 0, but excluding 1)
-        squares(1) / 0xffff_ffff;  //=> 0.846250728435407
+        squares(1) / 0x1_0000_0000;  //=> 0.846250728435407
     </script>
 </head>
 

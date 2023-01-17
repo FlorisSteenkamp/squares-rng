@@ -18,6 +18,7 @@ describe('squares', function() {
         expect(squares(7)).to.eq(4149091461);
         expect(squares(8)).to.eq(3640550681);
         expect(squares(9)).to.eq(556747510);
+        expect(squares(100)).to.eq(1083911291);
     });
 });
 
@@ -38,5 +39,6 @@ describe('squares4', function() {
         expect(squares4(8)).to.eq(1262179243);
         expect(squares4(9)).to.eq(2734098490);
         expect(squares4(10)).to.eq(1337643076);
+        expect(squares4(100)).to.eq(843037697);
     });
 });

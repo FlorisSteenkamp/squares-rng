@@ -15,7 +15,7 @@ const key: u64 = 0xea3742c76bf95d47;
  * https://arxiv.org/pdf/2004.06278v2.pdf) and is thus limited to 2^64 
  * inputs, however since we want this function to be called from JavaScript and
  * don't have a 64-bit unsigned integer type in JavaScript we further limit the 
- * input range to the 2^32 numbers in [0..2^32-1], i.e. [0..4,294,967,295‬] which 
+ * input range to the 2^32 numbers in [0..2^32-1], i.e. [0..4,294,967,295] which 
  * should still be enough for typical applications.
  * 
  * Example usage: 

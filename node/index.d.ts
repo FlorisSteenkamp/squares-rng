@@ -1,4 +1,3 @@
-declare type F = (n: number) => number;
-declare let squares: F;
-declare let squares4: F;
+declare const squares: (n: number) => number;
+declare const squares4: (n: number) => number;
 export { squares, squares4 };
