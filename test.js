@@ -1,5 +1,5 @@
 
-import { squares, squares4 } from "node_modules/squares-rng/browser/index.min.js"; 
+import { squares, squares4 } from "./browser/index.min.js"; 
 
 
 test();
