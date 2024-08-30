@@ -22,8 +22,8 @@
 /************************************************************************/
 var __webpack_exports__ = {};
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "L": () => (/* binding */ squares4),
-/* harmony export */   "x": () => (/* binding */ squares)
+/* harmony export */   N: () => (/* binding */ squares4),
+/* harmony export */   p: () => (/* binding */ squares)
 /* harmony export */ });
 const isBrowser = new Function("try {return this===window;}catch(e){ return false;}");
 //const isNode = new Function("try {return this===global;}catch(e){return false;}");
@@ -65,6 +65,6 @@ function toArrayBuffer(buffer) {
 }
 
 
-var __webpack_exports__squares = __webpack_exports__.x;
-var __webpack_exports__squares4 = __webpack_exports__.L;
+var __webpack_exports__squares = __webpack_exports__.p;
+var __webpack_exports__squares4 = __webpack_exports__.N;
 export { __webpack_exports__squares as squares, __webpack_exports__squares4 as squares4 };
