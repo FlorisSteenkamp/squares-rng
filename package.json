@@ -2,7 +2,7 @@
     "name": "squares-rng",
     "sideEffects": false,
     "description": "Squares: A Fast Counter-Based RNG",
-    "version": "2.0.2",
+    "version": "2.0.3",
     "author": {
         "name": "Floris Steenkamp"
     },
