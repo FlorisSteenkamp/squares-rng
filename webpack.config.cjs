@@ -1,6 +1,4 @@
 const path = require('path');
-const CircularDependencyPlugin = require('circular-dependency-plugin');
-const ResolveTypeScriptPlugin = require("resolve-typescript-plugin");
 
 
 const config_Basic = {
@@ -10,18 +8,24 @@ const config_Basic = {
     resolve: {
         extensions: [
             '.js', '.mjs', '.cjs', 
-            '.jsx', '.cjsx', '.mjsx'
+            '.jsx', '.cjsx', '.mjsx',
+            '.tsx', '.ts', '.d.ts'
         ],
-        plugins: [new ResolveTypeScriptPlugin({
-            includeNodeModules: false
-        })]
+        extensionAlias: {
+            ".js": [".js", ".ts"],
+            ".cjs": [".cjs", ".cts"],
+            ".mjs": [".mjs", ".mts"]
+        },
+        alias: {}
     },
     module: {
         rules: [
             {
                 test: /\.tsx?$/,
-                use: 'ts-loader',
-                exclude: /node_modules/
+                loader: 'ts-loader',
+                options: { silent: true },
+                exclude: /node_modules/,
+                sideEffects: false
             }
         ]
     },
@@ -32,16 +36,6 @@ const config_Basic = {
         errors: true,
         builtAt: true
     },
-    plugins: [
-        new CircularDependencyPlugin({
-            // exclude detection of files based on a RegExp
-            exclude: /node_modules/,
-            // add errors to webpack instead of warnings
-            failOnError: true,
-            // set the current working directory for displaying module paths
-            cwd: process.cwd(),
-        })
-    ],
     output: {
         path: path.resolve(__dirname, 'browser'),
         library: { type: 'module' }
