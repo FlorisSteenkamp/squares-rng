@@ -65,6 +65,6 @@ function toArrayBuffer(buffer) {
 }
 
 
-var __webpack_exports__squares = __webpack_exports__.p;
-var __webpack_exports__squares4 = __webpack_exports__.N;
+const __webpack_exports__squares = __webpack_exports__.p;
+const __webpack_exports__squares4 = __webpack_exports__.N;
 export { __webpack_exports__squares as squares, __webpack_exports__squares4 as squares4 };
